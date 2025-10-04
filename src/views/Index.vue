@@ -20,6 +20,7 @@
           <router-link
             v-if="!isAuthenticated"
             to="/login"
+             @click="router.push('/dashboard')"
             class="bg-gradient-to-r from-teal-600 to-emerald-500 text-white px-6 py-3 rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-300 font-semibold flex items-center"
           >
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -30,6 +31,7 @@
           <router-link
             v-if="!isAuthenticated"
             to="/register"
+            @click="router.push('/dashboard')"
             class="bg-gradient-to-r from-amber-500 to-orange-400 text-white px-6 py-3 rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-300 font-semibold flex items-center"
           >
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -278,7 +280,10 @@
 </template>
 
 <script>
-import api from "../service/api";
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import api from '../service/api';
+
 
 export default {
   data() {
