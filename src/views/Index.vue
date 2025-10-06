@@ -171,7 +171,7 @@
             </svg>
           </span>
         </h2>
-        <div class="w-24 h-1 bg-gradient-to-r from-emerald-500 to-teal-600 mx-auto rounded-full"></div>
+        <div class="w-24 h-1 bg-gradient-to-red from-emerald-500 to-teal-600 mx-auto rounded-full"></div>
      </div>
 
       <div v-if="loading" class="flex justify-center items-center py-12">
