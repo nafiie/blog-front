@@ -300,7 +300,7 @@ const fetchPosts = async () => {
   loading.value = true
   error.value = ''
   try {
-    const res = await api.get('api/posts')
+    const res = await api.get('/posts')
     posts.value = res.data
   } catch (err) {
     error.value = err.response?.data?.message || 'Failed to fetch posts'
