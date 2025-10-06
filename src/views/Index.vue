@@ -279,50 +279,56 @@
 </div>
 </template>
 
-<script>
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
-import api from '../service/api';
 
+<script setup>
+import { ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+import api from '../service/api'
 
-export default {
-  data() {
-    return {
-      posts: [],
-      loading: false,
-      error: "",
-      isAuthenticated: !!localStorage.getItem("authToken"),
-      menuOpen: false,
-    };
-  },
-  created() {
-    this.fetchPosts();
-  },
-  methods: {
-    async fetchPosts() {
-      this.loading = true;
-      this.error = "";
-      try {
-        const res = await api.get("/posts");
-        this.posts = res.data;
-      } catch (err) {
-        this.error = err.response?.data?.message || "Failed to fetch posts";
-      } finally {
-        this.loading = false;
-      }
-    },
-    toggleMenu() {
-      this.menuOpen = !this.menuOpen;
-    },
-    closeMenu() {
-      this.menuOpen = false;
-    },
-    logout() {
-      localStorage.removeItem("authToken");
-      this.isAuthenticated = false;
-      this.$router.push("/login");
-    },
-  },
-};
+// router instance
+const router = useRouter()
+
+// reactive data
+const posts = ref([])
+const loading = ref(false)
+const error = ref('')
+const isAuthenticated = ref(!!localStorage.getItem('authToken'))
+const menuOpen = ref(false)
+
+// fetch posts
+const fetchPosts = async () => {
+  loading.value = true
+  error.value = ''
+  try {
+    const res = await api.get('api/posts')
+    posts.value = res.data
+  } catch (err) {
+    error.value = err.response?.data?.message || 'Failed to fetch posts'
+  } finally {
+    loading.value = false
+  }
+}
+
+// menu controls
+const toggleMenu = () => {
+  menuOpen.value = !menuOpen.value
+}
+
+const closeMenu = () => {
+  menuOpen.value = false
+}
+
+// logout
+const logout = () => {
+  localStorage.removeItem('authToken')
+  isAuthenticated.value = false
+  router.push('/login')
+}
+
+// run on page load
+onMounted(() => {
+  fetchPosts()
+})
 </script>
+
 
