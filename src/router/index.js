@@ -6,6 +6,7 @@ import Dashboard from '../views/Dashboard.vue';
 import PostDetail from '../views/PostDetail.vue';
 import CreatePost from '../views/CreatePost.vue';
 import EditPost from '../views/EditPost.vue';
+import About from '../views/About.vue';
 
 const routes = [
   {
@@ -46,6 +47,12 @@ const routes = [
     name: 'EditPost',
     component: EditPost,
     meta: { requiresAuth: true }
+  },
+  {
+    path: '/about',
+    name: 'About',
+    component: About,
+    meta: { requiresAuth: false }
   },
 ];
 

@@ -1,33 +1,49 @@
 <template>
   <div class="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50">
     <!-- 🌟 NAVBAR -->
-  <header class="bg-white/90 backdrop-blur-md shadow-lg border-b border-slate-200 fixed top-0 left-0 w-full z-50">
+    <header class="bg-white/90 backdrop-blur-md shadow-lg border-b border-slate-200 fixed top-0 left-0 w-full z-50">
       <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
         <!-- Logo -->
         <router-link to="/" class="flex items-center space-x-3 group">
           <div class="w-10 h-10 bg-gradient-to-r from-teal-500 to-emerald-400 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
             <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
           </div>
-          <h1 class="text-4xl font-bold italic bg-gradient-to-r from-pink-400 via-amber-500 to-emerald-400 bg-clip-text text-transparent">
+          <h1
+            class="text-4xl font-bold italic bg-gradient-to-r from-pink-400 via-amber-500 to-emerald-400 bg-clip-text text-transparent">
             Nafii Talks
           </h1>
         </router-link>
 
         <!-- Desktop Buttons -->
         <div class="hidden md:flex space-x-3">
+          <!-- About Link -->
+          <router-link
+            to="/about"
+            class="bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-6 py-3 rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-300 font-semibold flex items-center"
+          >
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M13 16h-1v-4h-1m1-4h.01M12 20a8 8 0 100-16 8 8 0 000 16z" />
+            </svg>
+            About
+          </router-link>
+
           <router-link
             v-if="!isAuthenticated"
             to="/login"
-             @click="router.push('/dashboard')"
+            @click="router.push('/dashboard')"
             class="bg-gradient-to-r from-teal-600 to-emerald-500 text-white px-6 py-3 rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-300 font-semibold flex items-center"
           >
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
             </svg>
             Login
           </router-link>
+
           <router-link
             v-if="!isAuthenticated"
             to="/register"
@@ -35,43 +51,37 @@
             class="bg-gradient-to-r from-amber-500 to-orange-400 text-white px-6 py-3 rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-300 font-semibold flex items-center"
           >
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
             </svg>
             Join Now
           </router-link>
+
           <button
             v-if="isAuthenticated"
             @click="logout"
             class="bg-gradient-to-r from-rose-500 to-pink-600 text-white px-6 py-3 rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-300 font-semibold flex items-center"
           >
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
             </svg>
             Logout
           </button>
         </div>
 
         <!-- Mobile Menu Button -->
-        <button @click="toggleMenu" class="md:hidden p-2 rounded-lg bg-slate-100 hover:bg-slate-200 transition-colors duration-200">
-          <svg
-            v-if="!menuOpen"
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6 text-slate-700"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        <button @click="toggleMenu"
+          class="md:hidden p-2 rounded-lg bg-slate-100 hover:bg-slate-200 transition-colors duration-200">
+          <svg v-if="!menuOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-slate-700" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
           </svg>
-          <svg
-            v-else
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6 text-slate-700"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          <svg v-else xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-slate-700" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </nav>
@@ -79,6 +89,20 @@
       <!-- Mobile Dropdown Menu -->
       <div v-if="menuOpen" class="md:hidden bg-white/95 backdrop-blur-md border-t border-slate-200 shadow-lg">
         <div class="flex flex-col items-center space-y-4 py-6 font-medium">
+
+          <!-- About (mobile) -->
+          <router-link
+            @click="closeMenu"
+            to="/about"
+            class="bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-8 py-4 rounded-xl w-11/12 text-center font-semibold flex items-center justify-center"
+          >
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M13 16h-1v-4h-1m1-4h.01M12 20a8 8 0 100-16 8 8 0 000 16z" />
+            </svg>
+            About
+          </router-link>
+
           <router-link
             v-if="!isAuthenticated"
             @click="closeMenu"
@@ -86,10 +110,12 @@
             class="bg-gradient-to-r from-teal-600 to-emerald-500 text-white px-8 py-4 rounded-xl w-11/12 text-center font-semibold flex items-center justify-center"
           >
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
             </svg>
             Login
           </router-link>
+
           <router-link
             v-if="!isAuthenticated"
             @click="closeMenu"
@@ -97,17 +123,20 @@
             class="bg-gradient-to-r from-amber-500 to-orange-400 text-white px-8 py-4 rounded-xl w-11/12 text-center font-semibold flex items-center justify-center"
           >
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
             </svg>
             Join Now
           </router-link>
+
           <button
             v-if="isAuthenticated"
             @click="logout"
             class="bg-gradient-to-r from-rose-500 to-pink-600 text-white px-8 py-4 rounded-xl w-11/12 text-center font-semibold flex items-center justify-center"
           >
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
             </svg>
             Logout
           </button>
@@ -241,12 +270,19 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                 </svg>
               </button>
-              <div v-else class="text-slate-500 text-sm flex items-center">
-                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                </svg>
-                Register to engage
-              </div>
+             <div v-else class="text-slate-500 text-sm flex items-center">
+  <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+      d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+  </svg>
+  <router-link
+    to="/register"
+    class="text-emerald-600 font-semibold hover:underline hover:text-emerald-700 transition-colors duration-200"
+  >
+    Join to Read More
+  </router-link>
+</div>
+
             </div>
           </div>
         </div>
@@ -283,7 +319,6 @@
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import api from '../service/api'
-
 // router instance
 const router = useRouter()
 
