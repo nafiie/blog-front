@@ -72,13 +72,11 @@
       <div class="text-center">
         <router-link
           to="/register"
-          class="inline-flex items-center bg-gradient-to-r from-amber-500 to-terracotta-500 hover:from-amber-400 hover:to-amber-500 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
-        >
+          class="inline-flex items-center bg-gradient-to-r from-amber-500 to-terracotta-500 hover:from-amber-400 hover:to-amber-500 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl" >
           Join the Nafii Community
           <i class="fas fa-arrow-right ml-2"></i>
         </router-link>
       </div>
-
       <!-- Signature -->
       <div class="mt-12 pt-8 border-t border-amber-200 text-center">
         <p class="text-gray-600 italic mb-3">With warmth and inspiration,</p>
@@ -86,6 +84,29 @@
       </div>
     </div>
   </section>
+  <footer class="bg-amber-50 text-gray-700 border-t border-amber-100 mt-20">
+  <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+    <!-- Left side -->
+    <div class="text-center md:text-left">
+      <h3 class="text-lg font-extrabold text-amber-600">Nafii Talks.....</h3>
+      <p class="text-md text-gray-600 italic">Where thoughts meet words 🌿</p>
+    </div>
+    <!-- Center links -->
+    <div class="flex space-x-6 text-sm">
+      <router-link to="/" class="hover:text-amber-600 transition italic">Home</router-link>
+      <router-link to="/about" class="hover:text-amber-600 transition italic">About</router-link>
+      <router-link to="/register" class="hover:text-amber-600 transition italic">Join Now</router-link>
+      <router-link to="/login" class="hover:text-amber-600 transition italic">Login</router-link>
+    </div>
+    <!-- Right side -->
+    <div class="text-sm text-gray-500 text-center md:text-right">
+      <p>&copy; {{ new Date().getFullYear() }} Nafii Talks. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+<!-- ====== END FOOTER ====== -->
+
+
 </template>
 
 <script>
