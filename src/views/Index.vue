@@ -163,12 +163,12 @@
           </span>
         </h1>
         <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-8 leading-relaxed text-emerald-100">
-          Inspiration lives here—read, create, and connect with stories that matter. Your next idea starts now!
+          Inspiration lives here!Read, create, and connect with stories that matter. Your next idea starts now!
         </p>
         <div v-if="isAuthenticated" class="mt-8">
           <div class="bg-emerald-100 text-emerald-800 rounded-2xl px-6 py-4 shadow-lg border border-emerald-200 inline-block">
             <p class="text-lg font-semibold flex items-center justify-center">
-              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
               </svg>
               Welcome back! You can view and engage with posts.

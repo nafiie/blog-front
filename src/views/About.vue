@@ -41,14 +41,14 @@
 
         <div class="space-y-6">
           <p class="text-gray-700 leading-relaxed text-lg font-light">
-            Welcome to <strong class="text-amber-500 font-semibold">Nafii Talks</strong> — a cozy space where stories, lifestyle, and inspiration meet. 
+            Welcome to <strong class="text-amber-500 font-semibold">Nafii Talks.</strong> a cozy space where stories, lifestyle, and inspiration meet. 
             Here, Nafii shares heartfelt reflections, motivational thoughts, and everyday experiences that 
             remind us to live with purpose, love deeply, and grow fearlessly.
           </p>
           
           <p class="text-gray-700 leading-relaxed text-lg font-light">
             Whether you're here for encouragement, lifestyle insights, or just a little spark of joy, 
-            there's always something new to discover. Let's walk this journey together — one post, one thought, one smile at a time.
+            there's always something new to discover. Let's walk this journey together, one post, one thought, one smile at a time.
           </p>
         </div>
       </div>
